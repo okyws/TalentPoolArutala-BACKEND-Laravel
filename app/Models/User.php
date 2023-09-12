@@ -8,10 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements JWTSubject
 {
-  use HasApiTokens, HasFactory, Notifiable;
+  use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
   /**
    * The attributes that are mass assignable.
@@ -62,5 +64,17 @@ class User extends Authenticatable implements JWTSubject
   public function getJWTCustomClaims()
   {
     return [];
+  }
+
+  public function __construct(array $attributes = [])
+  {
+    parent::__construct($attributes);
+    $this->setDefaultRole(); // Assign a default role to new users
+  }
+
+  protected function setDefaultRole()
+  {
+    $defaultRole = Role::firstOrCreate(['name' => 'customer']);
+    $this->assignRole($defaultRole);
   }
 }
