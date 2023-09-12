@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -39,4 +41,22 @@ Route::controller(UserController::class)->group(function () {
 Route::controller(PermissionController::class)->group(function () {
   Route::post('assign-permission-to-role', 'assignPermissionToRole');
   Route::post('assign-permission-to-user', 'assignPermissionToUser');
+});
+
+Route::controller(CategoriesController::class)->group(function () {
+  Route::get('categories', 'index');
+  Route::get('categories/{id}', 'show');
+  Route::post('categories', 'store');
+  Route::put('categories/{id}', 'update');
+  Route::delete('categories/{id}', 'destroy');
+  Route::get('/categories/{categoryName}/products', CategoriesController::class . '@getProductsByCategory');
+});
+
+Route::controller(ProductController::class)->group(function () {
+  Route::get('products', 'index');
+  Route::get('products/{id}', 'show');
+  Route::post('products', 'store');
+  Route::put('products/{id}', 'update');
+  Route::delete('products/{id}', 'destroy');
+  Route::get('/products/category/{categoryName}', ProductController::class . '@getByCategory');
 });
