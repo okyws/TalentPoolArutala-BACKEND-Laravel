@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\v1;
 
+use App\Http\Controllers\API\v1\Controller;
 use App\Models\Categories;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class CategoriesController extends Controller
 {
   public function __construct()
   {
-    $this->middleware(['auth:api', 'role:admin|seller']);
+    $this->middleware(['auth:api', 'role:admin|seller'], ['except' => ['index', 'show', 'getProductsByCategory']]);
   }
 
   public function index()

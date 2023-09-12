@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Categories;
+use App\Models\AddToCart;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CategorySeeder extends Seeder
+class AddToCartSeeder extends Seeder
 {
   /**
    * Run the database seeds.
    */
   public function run(): void
   {
-    Categories::factory(15)->create();
+    AddToCart::factory(50)->create();
   }
 }

@@ -17,7 +17,28 @@ class CategoriesFactory extends Factory
   public function definition(): array
   {
     return [
-      'name' => fake()->name(),
+      'name' => fake()->randomElement([
+        'Electronics',
+        'Clothing',
+        'Home Appliances',
+        'Food',
+        'Health',
+        'Automotive',
+        'Toys',
+        'Beauty',
+        'Hobbies',
+        'Sports',
+        'Books',
+        'Music',
+        'Jewelry',
+        'Furniture',
+        'Computers',
+        'Mobile Phones',
+        'Accessories',
+        'Cameras',
+        'Shoes',
+        'Bags',
+      ]),
       'description' => fake()->sentence(),
     ];
   }

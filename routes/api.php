@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\API\AuthController;
-use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\PermissionController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\API\v1\AuthController;
+use App\Http\Controllers\API\v1\CartController;
+use App\Http\Controllers\API\v1\CategoriesController;
+use App\Http\Controllers\API\v1\PermissionController;
+use App\Http\Controllers\API\v1\ProductController;
+use App\Http\Controllers\API\v1\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -59,4 +60,12 @@ Route::controller(ProductController::class)->group(function () {
   Route::put('products/{id}', 'update');
   Route::delete('products/{id}', 'destroy');
   Route::get('/products/category/{categoryName}', ProductController::class . '@getByCategory');
+});
+
+Route::controller(CartController::class)->group(function () {
+  Route::get('carts', 'index');
+  Route::post('carts', 'store');
+  Route::get('carts/{id}', 'show');
+  Route::put('carts/{id}', 'update');
+  Route::delete('carts/{id}', 'destroy');
 });

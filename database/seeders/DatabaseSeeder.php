@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
     User::factory()->create([
       'name' => 'Seller',
       'email' => 'seller@example.com',
-    ]);
+    ])->assignRole('seller');
 
     User::factory()->create([
       'name' => 'Customer',
@@ -40,7 +40,8 @@ class DatabaseSeeder extends Seeder
 
     $this->call([
       CategorySeeder::class,
-      ProductSeeder::class
+      ProductSeeder::class,
+      AddToCartSeeder::class,
     ]);
   }
 }

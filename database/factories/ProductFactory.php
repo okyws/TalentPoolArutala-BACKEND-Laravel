@@ -23,7 +23,7 @@ class ProductFactory extends Factory
 
     return [
       'name' => fake()->name(),
-      'price' => fake()->randomFloat(2, 1, 10000),
+      'price' => fake()->randomDigit(2, 1, 10000),
       'image' => fake()->imageUrl(),
       'quantity' => $qty,
       'categories_id' => $category_id,

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API\v1;
 
 use App\Models\Categories;
 use App\Models\Product;
@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
+use App\Http\Controllers\API\v1\Controller;
 
 class ProductController extends Controller
 {
   public function __construct()
   {
-    $this->middleware(['auth:api', 'role:admin|seller']);
+    $this->middleware(['auth:api', 'role:admin|seller'], ['except' => ['index', 'show', 'getByCategory']]);
   }
 
   /**

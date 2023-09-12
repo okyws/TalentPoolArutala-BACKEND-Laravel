@@ -77,4 +77,9 @@ class User extends Authenticatable implements JWTSubject
     $defaultRole = Role::firstOrCreate(['name' => 'customer']);
     $this->assignRole($defaultRole);
   }
+
+  public function addToCart()
+  {
+    return $this->hasMany(Product::class);
+  }
 }
