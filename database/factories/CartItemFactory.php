@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Cart;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -9,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AddToCart>
  */
-class AddToCartFactory extends Factory
+class CartItemFactory extends Factory
 {
   /**
    * Define the model's default state.
@@ -23,20 +24,17 @@ class AddToCartFactory extends Factory
     $product = Product::find($product_id);
     $product_price = $product->price;
 
-    $user = User::pluck('id')->toArray();
-    $user_id = $this->faker->randomElement($user);
+    $cart = Cart::pluck('id')->toArray();
+    $cart_id = $this->faker->randomElement($cart);
 
-    $qty = rand(1, 10);
+    $qty = rand(2, 6);
     $subtotal = $qty * $product_price;
 
     return [
+      'cart_id' => $cart_id,
       'product_id' => $product_id,
-      'user_id' => $user_id,
       'quantity' => $qty,
       'subtotal' => $subtotal,
-      'status' => fake()->randomElement([
-        'cart', 'checkout', 'cancelled'
-      ]),
     ];
   }
 }

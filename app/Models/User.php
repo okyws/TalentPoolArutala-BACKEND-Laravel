@@ -78,8 +78,8 @@ class User extends Authenticatable implements JWTSubject
     $this->assignRole($defaultRole);
   }
 
-  public function addToCart()
+  public function carts()
   {
-    return $this->hasMany(Product::class);
+    return $this->hasMany(Cart::class);
   }
 }

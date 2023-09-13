@@ -23,13 +23,13 @@ class Product extends Model
 
   protected $hidden = [];
 
-  public function category()
+  public function categories()
   {
-    return $this->belongsTo(Category::class);
+    return $this->belongsTo(Categories::class);
   }
 
-  public function addToCart()
+  public function cartItem()
   {
-    return $this->hasMany(AddToCart::class);
+    return $this->hasMany(CartItem::class);
   }
 }

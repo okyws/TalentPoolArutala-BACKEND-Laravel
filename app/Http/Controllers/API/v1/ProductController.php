@@ -48,14 +48,15 @@ class ProductController extends Controller
         'price' => 'required|numeric',
         'image' => 'required|string',
         'quantity' => 'required|integer',
-        'category_id' => [
+        'categories_id' => [
           'required',
           'integer',
           Rule::exists('categories', 'id'),
         ],
-        'status' => 'required|string',
         'description' => 'required|string',
       ]);
+
+      $validatedData['status'] = $validatedData['quantity'] == 0 ? 'out of stock' : 'in stock';
 
       $Product = Product::create($validatedData);
       return response()->json([
@@ -112,16 +113,18 @@ class ProductController extends Controller
         'price' => 'required|numeric',
         'image' => 'required|string',
         'quantity' => 'required|integer',
-        'category_id' => [
+        'categories_id' => [
           'required',
           'integer',
           Rule::exists('categories', 'id'),
         ],
-        'status' => 'required|string',
         'description' => 'required|string',
       ]);
 
       $product = Product::findOrFail($id);
+      $stock = $validatedData['quantity'];
+      $product->status = $stock == 0 ? 'out of stock' : 'in stock';
+
       $product->update($validatedData);
 
       return response()->json([
@@ -173,19 +176,16 @@ class ProductController extends Controller
     }
   }
 
-
   public function getByCategory($categoryName)
   {
     try {
       $category = Categories::where('name', $categoryName)->firstOrFail();
 
-      $products = $category->products->map(function ($product) {
-        return $product->only(['id', 'name', 'price', 'image', 'quantity', 'status', 'description', 'created_at', 'updated_at']);
-      });
+      $products = Product::with('categories')->where('categories_id', $category->id)->get();
 
       $response = [
-        'products' => $products->toArray(),
-        'category' => $category->only(['id', 'name', 'description', 'created_at', 'updated_at']),
+        'products' => $products,
+        'categories' => $category->only(['id', 'name', 'description']),
       ];
 
       return response()->json([

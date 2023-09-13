@@ -13,7 +13,7 @@ class PermissionController extends Controller
 {
   public function __construct()
   {
-    $this->middleware(['auth:api', 'role_or_permission:admin']);
+    $this->middleware(['auth:api', 'role:admin']);
   }
 
   public function assignPermissionToRole(Request $request)

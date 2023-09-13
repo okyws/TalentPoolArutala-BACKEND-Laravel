@@ -13,14 +13,21 @@ return new class extends Migration
   {
     Schema::create('check_outs', function (Blueprint $table) {
       $table->id();
-      $table->foreignId('cart_id')
-        ->nullable()
-        ->constrained('add_to_carts', 'id')
-        ->cascadeOnUpdate()
-        ->nullOnDelete();
+      // $table->foreignId('cart_id')
+      //   ->nullable()
+      //   ->constrained('add_to_carts', 'id')
+      //   ->cascadeOnUpdate()
+      //   ->nullOnDelete();
+      // $table->foreignId('user_id')
+      //   ->nullable()
+      //   ->constrained('users', 'id')
+      //   ->cascadeOnUpdate()
+      //   ->nullOnDelete();
       $table->string('payment_method');
       $table->integer('quantity');
       $table->integer('total_price');
+      $table->string('address');
+      $table->string('status');
       $table->timestamps();
     });
   }

@@ -16,29 +16,33 @@ class CategoriesFactory extends Factory
    */
   public function definition(): array
   {
+    $name = [
+      'Electronics',
+      'Clothing',
+      'Home Appliances',
+      'Food',
+      'Health',
+      'Automotive',
+      'Toys',
+      'Beauty',
+      'Hobbies',
+      'Sports',
+      'Books',
+      'Music',
+      'Jewelry',
+      'Furniture',
+      'Computers',
+      'Mobile Phones',
+      'Accessories',
+      'Cameras',
+      'Shoes',
+      'Bags',
+    ];
+
+    $lowercaseNames = array_map('strtolower', $name);
+
     return [
-      'name' => fake()->randomElement([
-        'Electronics',
-        'Clothing',
-        'Home Appliances',
-        'Food',
-        'Health',
-        'Automotive',
-        'Toys',
-        'Beauty',
-        'Hobbies',
-        'Sports',
-        'Books',
-        'Music',
-        'Jewelry',
-        'Furniture',
-        'Computers',
-        'Mobile Phones',
-        'Accessories',
-        'Cameras',
-        'Shoes',
-        'Bags',
-      ]),
+      'name' => fake()->unique()->randomElement($lowercaseNames),
       'description' => fake()->sentence(),
     ];
   }

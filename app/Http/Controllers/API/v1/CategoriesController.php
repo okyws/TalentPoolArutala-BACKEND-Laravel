@@ -136,15 +136,12 @@ class CategoriesController extends Controller
   {
     try {
       $category = Categories::where('name', $categoryName)->firstOrFail();
-
-      $products = $category->products;
-
-      $categoryData = $category->toArray();
-      $categoryData['products'] = $products->toArray();
+      $category_id = $category->id;
+      $category_2 = Categories::with('products')->where('id', $category_id)->firstOrFail();
 
       return response()->json([
         'status' => 200,
-        'data' => $categoryData
+        'data' => $category_2
       ], 200);
     } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
       return response()->json([

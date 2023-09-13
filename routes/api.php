@@ -64,12 +64,12 @@ Route::controller(ProductController::class)->group(function () {
 
 Route::controller(CartController::class)->group(function () {
   Route::get('carts', 'index');
-  Route::post('carts', 'store');
   Route::get('carts/{id}', 'show');
+  Route::post('carts', 'store');
   Route::put('carts/{id}', 'update');
   Route::delete('carts/{id}', 'destroy');
   // untuk simulasi checkout
-  Route::post('carts/{id}/checkout', 'checkout');
+  // Route::post('carts/{id}/checkout', 'checkout');
   // untuk simulasi cancel
-  Route::post('carts/{id}/cancel', 'cancel');
+  // Route::post('carts/{id}/cancel', 'cancel');
 });
