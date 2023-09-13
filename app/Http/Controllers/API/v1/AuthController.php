@@ -29,12 +29,14 @@ class AuthController extends Controller
 
       if (!$token) {
         return response()->json([
+          'status' => 401,
           'message' => 'Unauthorized',
         ], 401);
       }
 
       $user = Auth::user();
       return response()->json([
+        'status' => 200,
         'user' => $user,
         'authorization' => [
           'token' => $token,
@@ -43,6 +45,7 @@ class AuthController extends Controller
       ], 200);
     } catch (\Exception $e) {
       return response()->json([
+        'status' => 500,
         'message' => 'An error occurred while logging in.',
         'error' => $e->getMessage(),
       ], 500);
@@ -59,9 +62,10 @@ class AuthController extends Controller
 
     if ($validator->fails()) {
       return response()->json([
+        'status' => 422,
         'message' => 'Validation error',
         'errors' => $validator->errors(),
-      ], 400);
+      ], 422);
     }
 
     try {
@@ -72,11 +76,13 @@ class AuthController extends Controller
       ]);
 
       return response()->json([
+        'status' => 201,
         'message' => 'User created successfully',
         'user' => $user
       ], 201);
     } catch (\Exception $e) {
       return response()->json([
+        'status' => 500,
         'message' => 'An error occurred while registering the user.',
         'error' => $e->getMessage(),
       ], 500);
@@ -89,10 +95,12 @@ class AuthController extends Controller
       Auth::logout();
 
       return response()->json([
+        'status' => 200,
         'message' => 'Successfully logged out',
       ], 200);
     } catch (\Exception $e) {
       return response()->json([
+        'status' => 500,
         'message' => 'An error occurred while logging out.',
         'error' => $e->getMessage(),
       ], 500);
@@ -103,6 +111,7 @@ class AuthController extends Controller
   {
     try {
       return response()->json([
+        'status' => 200,
         'user' => Auth::user(),
         'authorization' => [
           'token' => Auth::refresh(),
@@ -111,6 +120,7 @@ class AuthController extends Controller
       ], 200);
     } catch (\Exception $e) {
       return response()->json([
+        'status' => 500,
         'message' => 'An error occurred while refreshing the authentication token.',
         'error' => $e->getMessage(),
       ], 500);

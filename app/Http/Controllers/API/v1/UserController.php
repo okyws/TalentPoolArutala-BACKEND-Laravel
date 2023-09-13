@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\API\v1\Controller;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -24,7 +25,10 @@ class UserController extends Controller
         'users' => $users
       ]);
     } catch (\Exception $e) {
-      return response()->json(['message' => 'Error retrieving users'], 500);
+      return response()->json([
+        'status' => 500,
+        'message' => 'Error retrieving users'
+      ], 500);
     }
   }
 
@@ -37,9 +41,15 @@ class UserController extends Controller
         'user' => $user
       ]);
     } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-      return response()->json(['message' => 'User not found'], 404);
+      return response()->json([
+        'status' => 404,
+        'message' => 'User not found'
+      ], 404);
     } catch (\Exception $e) {
-      return response()->json(['message' => 'Error retrieving user'], 500);
+      return response()->json([
+        'status' => 500,
+        'message' => 'Error retrieving user'
+      ], 500);
     }
   }
 
@@ -54,6 +64,7 @@ class UserController extends Controller
 
       if ($validator->fails()) {
         return response()->json([
+          'status' => 400,
           'message' => 'Validation error',
           'errors' => $validator->errors()
         ], 400);
@@ -66,11 +77,15 @@ class UserController extends Controller
       $user->save();
 
       return response()->json([
+        'status' => 201,
         'message' => 'User created successfully',
         'user' => $user
       ], 201);
     } catch (\Exception $e) {
-      return response()->json(['message' => 'Error creating user'], 500);
+      return response()->json([
+        'status' => 500,
+        'message' => 'Error creating user'
+      ], 500);
     }
   }
 
@@ -87,6 +102,7 @@ class UserController extends Controller
 
       if ($validator->fails()) {
         return response()->json([
+          'status' => 400,
           'message' => 'Validation error',
           'errors' => $validator->errors()
         ], 400);
@@ -104,13 +120,20 @@ class UserController extends Controller
       $user->save();
 
       return response()->json([
+        'status' => 200,
         'message' => 'User updated successfully',
-        'user' => $user
-      ]);
+        'data' => $user
+      ], 200);
     } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-      return response()->json(['message' => 'User not found'], 404);
+      return response()->json([
+        'status' => 404,
+        'message' => 'User not found'
+      ], 404);
     } catch (\Exception $e) {
-      return response()->json(['message' => 'Error updating user'], 500);
+      return response()->json([
+        'status' => 500,
+        'message' => 'Error updating user'
+      ], 500);
     }
   }
 
@@ -124,9 +147,15 @@ class UserController extends Controller
         'message' => 'User deleted successfully'
       ]);
     } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-      return response()->json(['message' => 'User not found'], 404);
+      return response()->json([
+        'status' => 404,
+        'message' => 'User not found'
+      ], 404);
     } catch (\Exception $e) {
-      return response()->json(['message' => 'Error deleting user'], 500);
+      return response()->json([
+        'status' => 500,
+        'message' => 'Error deleting user'
+      ], 500);
     }
   }
 }

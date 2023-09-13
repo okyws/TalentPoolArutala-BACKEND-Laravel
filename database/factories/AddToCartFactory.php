@@ -26,14 +26,17 @@ class AddToCartFactory extends Factory
     $user = User::pluck('id')->toArray();
     $user_id = $this->faker->randomElement($user);
 
-    $qty = $this->faker->randomDigit();
-    $total_price = $qty * $product_price;
+    $qty = rand(1, 10);
+    $subtotal = $qty * $product_price;
 
     return [
       'product_id' => $product_id,
       'user_id' => $user_id,
       'quantity' => $qty,
-      'total_price' => $total_price,
+      'subtotal' => $subtotal,
+      'status' => fake()->randomElement([
+        'cart', 'checkout', 'cancelled'
+      ]),
     ];
   }
 }

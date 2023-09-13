@@ -29,11 +29,20 @@ class PermissionController extends Controller
 
       $role->givePermissionTo($permission);
 
-      return response()->json(['message' => 'Permission assigned to role successfully'], 200);
+      return response()->json([
+        'status' => 201,
+        'message' => 'Permission assigned to role successfully'
+      ], 201);
     } catch (ValidationException $e) {
-      return response()->json(['error' => $e->errors()], 422);
+      return response()->json([
+        'status' => 422,
+        'error' => $e->errors()
+      ], 422);
     } catch (\Exception $e) {
-      return response()->json(['error' => $e->getMessage()], 500);
+      return response()->json([
+        'status' => 500,
+        'error' => $e->getMessage()
+      ], 500);
     }
   }
 
@@ -50,11 +59,20 @@ class PermissionController extends Controller
 
       $user->givePermissionTo($permission);
 
-      return response()->json(['message' => 'Permission assigned to user successfully'], 200);
+      return response()->json([
+        'status' => 201,
+        'message' => 'Permission assigned to user successfully'
+      ], 201);
     } catch (ValidationException $e) {
-      return response()->json(['error' => $e->errors()], 422);
+      return response()->json([
+        'status' => 422,
+        'error' => $e->errors()
+      ], 422);
     } catch (\Exception $e) {
-      return response()->json(['error' => $e->getMessage()], 500);
+      return response()->json([
+        'status' => 500,
+        'error' => $e->getMessage()
+      ], 500);
     }
   }
 }

@@ -13,7 +13,8 @@ class AddToCart extends Model
     'product_id',
     'user_id',
     'quantity',
-    'total_price',
+    'subtotal',
+    'status',
   ];
 
   protected $hidden = [];
