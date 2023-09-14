@@ -7,13 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\API\v1\Controller;
-use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
   public function __construct()
   {
-    $this->middleware(['auth:api', 'role:admin']);
+    $this->middleware(['auth:api', 'role:admin'], ['except' => ['index']]);
   }
 
   public function index()

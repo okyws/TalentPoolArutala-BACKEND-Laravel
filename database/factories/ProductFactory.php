@@ -19,12 +19,12 @@ class ProductFactory extends Factory
   {
     $category = Categories::pluck('id')->toArray();
     $category_id = $this->faker->randomElement($category);
-    $qty = fake()->randomNumber(1);
+    $qty = fake()->numberBetween(0, 100);
     $status = ($qty == 0) ? 'out of stock' : 'in stock';
 
     return [
       'name' => fake()->name(),
-      'price' => rand(10000, 100000),
+      'price' => fake()->numberBetween(10000, 10000000),
       'image' => fake()->imageUrl(),
       'quantity' => $qty,
       'categories_id' => $category_id,

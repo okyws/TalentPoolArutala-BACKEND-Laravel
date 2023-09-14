@@ -3,8 +3,10 @@
 use App\Http\Controllers\API\v1\AuthController;
 use App\Http\Controllers\API\v1\CartController;
 use App\Http\Controllers\API\v1\CategoriesController;
+use App\Http\Controllers\API\v1\OrderController;
 use App\Http\Controllers\API\v1\PermissionController;
 use App\Http\Controllers\API\v1\ProductController;
+use App\Http\Controllers\API\v1\TransactionController;
 use App\Http\Controllers\API\v1\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -68,8 +70,22 @@ Route::controller(CartController::class)->group(function () {
   Route::post('carts', 'store');
   Route::put('carts/{id}', 'update');
   Route::delete('carts/{id}', 'destroy');
-  // untuk simulasi checkout
-  // Route::post('carts/{id}/checkout', 'checkout');
-  // untuk simulasi cancel
-  // Route::post('carts/{id}/cancel', 'cancel');
 });
+
+Route::controller(OrderController::class)->group(function () {
+  Route::get('orders', 'index');
+  Route::get('orders/{id}', 'show');
+  // untuk simulasi checkout dari cart ke order
+  Route::post('carts/{id}/checkout', 'store');
+  Route::put('orders/{id}', 'update');
+  Route::delete('orders/{id}', 'destroy')->middleware('role:admin');
+});
+
+// untuk simulasi transaksi berdasarkan statusnya
+Route::controller(TransactionController::class)->group(function () {
+  Route::get('transactions/{status}', 'index');
+});
+
+// untuk simulasi update status order
+Route::put('orders/{status}/{orderId}', [OrderController::class, 'updateStatus'])
+  ->middleware('role:customer|seller');

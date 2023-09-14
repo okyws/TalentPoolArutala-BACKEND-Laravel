@@ -16,7 +16,6 @@
 
 # Incomplete (WIP)
 
--   [ ] Checkout dan List Transaksi
 -   [ ] Add Management Toko for role seller
 -   [ ] Api Documentation
 
@@ -26,6 +25,7 @@
 -   [x] List Product
 -   [x] Category, Detail Product
 -   [x] Add To Cart
+-   [x] Checkout dan List Transaksi
 
 # Tech Stack
 

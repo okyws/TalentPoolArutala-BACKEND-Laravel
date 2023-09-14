@@ -58,8 +58,8 @@ class Cart extends Model
     }
   }
 
-  public function removeItem($cartItem)
+  public function orders()
   {
-    $cartItem->delete();
+    return $this->hasMany(Order::class);
   }
 }

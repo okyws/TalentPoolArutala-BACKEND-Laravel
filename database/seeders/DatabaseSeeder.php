@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\OrderDetail;
 use App\Models\User;
+use Database\Factories\OrderDetailFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -43,6 +45,9 @@ class DatabaseSeeder extends Seeder
       ProductSeeder::class,
       CartSeeder::class,
       CartItemSeeder::class,
+      OrderSeeder::class,
     ]);
+
+    OrderDetail::factory(200)->create();
   }
 }
