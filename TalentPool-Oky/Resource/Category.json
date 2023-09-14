@@ -1,0 +1,253 @@
+{
+    "info": {
+        "_postman_id": "689f0343-cd5b-46c9-b4ae-2f72922b417b",
+        "name": "category",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "get categories",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/categories",
+                    "path": [
+                        "api",
+                        "v1",
+                        "categories"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0NjI1MjA3LCJleHAiOjE2OTQ2Mjg4MDcsIm5iZiI6MTY5NDYyNTIwNywianRpIjoibjJFVXFCSkh2N3RaNEllbiIsInN1YiI6IjEzIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.wCUIezt_y08sUqbl9ejVQYz24Nh7rdFdfVvUprM-wGA",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "create categories",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/categories",
+                    "path": [
+                        "api",
+                        "v1",
+                        "categories"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"name\":\"flash sale\",\n  \"description\":\"promo murah\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "get by id categories",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/categories/:id",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "categories",
+                        ":id"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "update categories",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/categories/:id",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "10"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "categories",
+                        ":id"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"name\":\"pulsa\",\n  \"description\":\"pulsa...\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "delete Categories",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/categories/:id",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "6"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "categories",
+                        ":id"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "get product by category name",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/categories/:categoryName/products",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "categoryName",
+                            "value": "books"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "categories",
+                        ":categoryName",
+                        "products"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjk0NTUzOTQwLCJleHAiOjE2OTQ1NTc1NDAsIm5iZiI6MTY5NDU1Mzk0MCwianRpIjoiT2VONFg1VGlnMk1SOG1ZSSIsInN1YiI6IjE0IiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.njMzDfSUD2d1u5pdyMrPz24saOP1BCtJtSrJQ4Nd2fM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

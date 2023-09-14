@@ -1,0 +1,221 @@
+{
+    "info": {
+        "_postman_id": "c393dc5c-e75e-425a-9910-e3c50bb13725",
+        "name": "Order",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "all order based login user",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/orders",
+                    "path": [
+                        "api",
+                        "v1",
+                        "orders"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "new order",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/carts/:id/checkout",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "26"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "carts",
+                        ":id",
+                        "checkout"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"address\": \"Gg. Ters. Jakarta No. 209, Bandung 58167, Jawa Barat\",\n  \"courier_service\": \"pos\",\n  \"payment_method\": \"debit\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "get detail order",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/orders/:id",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "44"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "orders",
+                        ":id"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "update order",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/orders/:id",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "96"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "orders",
+                        ":id"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"address\": \"Gg. Ters. Jakarta No. 209, Bandung 58167, Jawa Barat\",\n  \"courier_service\": \"pos\",\n  \"payment_method\": \"e-money\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "delete",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/orders/:id",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "6"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "orders",
+                        ":id"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

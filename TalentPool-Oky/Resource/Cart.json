@@ -1,0 +1,262 @@
+{
+    "info": {
+        "_postman_id": "cfb60f6f-9c75-47b6-82bc-569d1cb68b83",
+        "name": "Cart",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "all cart by user login",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/carts",
+                    "path": [
+                        "api",
+                        "v1",
+                        "carts"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "detail cart by id ",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/carts/:id",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "26"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "carts",
+                        ":id"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "add to cart",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/carts",
+                    "path": [
+                        "api",
+                        "v1",
+                        "carts"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"items\": [\n    {\n      \"product_id\": 2,\n      \"quantity\": 3\n    }\n  ]\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "edit cart",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/carts/:id",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "9"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "carts",
+                        ":id"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"items\": [\n    {\n      \"product_id\": 14,\n      \"quantity\": 6\n    }\n  ]\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "delete cart",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/carts/:id",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "177"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "carts",
+                        ":id"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "checkout",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/carts/:id/checkout",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "9"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "carts",
+                        ":id",
+                        "checkout"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"address\": \"Gg. Ters. Jakarta No. 209, Bandung 58167, Jawa Barat\",\n  \"courier_service\": \"pos\",\n  \"payment_method\": \"debit\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

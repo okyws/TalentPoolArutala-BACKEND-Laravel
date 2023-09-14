@@ -1,0 +1,233 @@
+{
+    "info": {
+        "_postman_id": "5b663cb3-1845-438f-94a0-fbc151d0b336",
+        "name": "Users",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "get all-user",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/users",
+                    "path": [
+                        "api",
+                        "v1",
+                        "users"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                }
+            }
+        },
+        {
+            "name": "get by users/{id}",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/users/:id",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "10"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "users",
+                        ":id"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "create users",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/users",
+                    "path": [
+                        "api",
+                        "v1",
+                        "users"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"name\":\"Oky Wahyu Setyaji\",\n  \"email\": \"wahyu@example.com\",\n  \"password\": \"password\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "edit users/{id}",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/users/:id",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "users",
+                        ":id"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"name\":\"user\",\n  \"email\": \"useraja@example.com\",\n  \"password\": \"password\"\n}"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "delete users/{id}",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/users/:id",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "2"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "users",
+                        ":id"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "current user",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/user",
+                    "path": [
+                        "api",
+                        "user"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,95 @@
+{
+    "info": {
+        "_postman_id": "968531ff-c69e-45cc-a04d-bca73a151da5",
+        "name": "Other",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "other",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/orders/:status/:orderId",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "status",
+                            "value": "shipped"
+                        },
+                        {
+                            "key": "orderId",
+                            "value": "44"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "orders",
+                        ":status",
+                        ":orderId"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "transaction simulation",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://127.0.0.1:8000/api/v1/transactions/:status",
+                    "query": [],
+                    "variable": [
+                        {
+                            "key": "status",
+                            "value": "shipped"
+                        }
+                    ],
+                    "path": [
+                        "api",
+                        "v1",
+                        "transactions",
+                        ":status"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "127",
+                        "0",
+                        "0",
+                        "1"
+                    ],
+                    "port": "8000"
+                },
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjk0NjYwNjIwLCJleHAiOjE2OTQ2NjQyMjAsIm5iZiI6MTY5NDY2MDYyMCwianRpIjoiNGEzRVZaNmRTT2NyeEs4OSIsInN1YiI6IjExIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.N3ph0MgHiRbjG82FsdisrGtkRBygjurDKyAloEUG3TM",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
